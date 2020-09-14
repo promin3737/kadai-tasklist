@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   end
 
   def show
-      @task = Task.find
+      @task = Task.find(params[:id])
   end
 
   def new
@@ -13,7 +13,7 @@ class TasksController < ApplicationController
 
   def create
       @task = Task.new(task_params)
-      
+    
       if @task.save
       flash[:success] = 'Task が正常に作成されました'
       redirect_to @task
